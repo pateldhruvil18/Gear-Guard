@@ -1,0 +1,23 @@
+import api from './axios';
+
+export const authApi = {
+  login: async (email, password) => {
+    const response = await api.post('/auth/login', { email, password });
+    return response;
+  },
+
+  register: async (userData) => {
+    const response = await api.post('/auth/register', userData);
+    return response;
+  },
+
+  getCurrentUser: async () => {
+    const response = await api.get('/auth/me');
+    return response;
+  },
+
+  checkManagerExists: async () => {
+    const response = await api.get('/auth/check-manager');
+    return response;
+  },
+};
